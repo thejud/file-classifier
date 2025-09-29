@@ -1,6 +1,4 @@
 [test]
 # Exclude e2e tests from Bun test runs - these should only run with Playwright
 timeout = 30000
-
-# Ignore patterns for tests
 root = "."
