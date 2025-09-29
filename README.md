@@ -1,6 +1,26 @@
 # File Classifier
 
-A fast, lightweight macOS CLI tool that launches a web interface for manually classifying files or CSV rows. Built with Bun, TypeScript, and vanilla web technologies for maximum performance and simplicity.
+A fast, lightweight macOS CLI tool that launches a simple web interface for manually classifying files or CSV rows.  
+Built with Bun, TypeScript, and vanilla web technologies for maximum performance and simplicity.
+
+## Why?
+
+When working with a collection of files—or rows of data in a CSV—it’s often
+necessary to review and categorize each item.  Doing this in a spreadsheet or
+directly on the command line can be inconvenient, particularly when fields
+contain long text, markdown, or other formatting that’s easier to read in a
+browser.
+
+## What It Does
+
+`file-classifier` provides a streamlined workflow:
+
+1. Run the CLI command.
+2. A small web UI opens instantly in your browser.
+3. Review files or CSV rows quickly in a clean, readable format.
+4. Apply labels, categories, or notes with minimal friction.
+
+The goal is **speed and simplicity**: an interface that gets out of your way so you can focus on classification, not tooling.
 
 ![File Classifier UI](screenshots/ui-initial.png)
 
@@ -22,13 +42,13 @@ A fast, lightweight macOS CLI tool that launches a web interface for manually cl
 
 Download the appropriate binary for your Mac:
 
-- **Apple Silicon (M1/M2/M3)**: `file-classifier-arm64`
-- **Intel Macs**: `file-classifier`
+- **Apple Silicon (M1/M2/M3)**: `file-classifier`
+- **Intel Macs**: `file-classifier-intel`
 
 Make it executable:
 ```bash
-chmod +x file-classifier-arm64
-sudo mv file-classifier-arm64 /usr/local/bin/file-classifier
+chmod +x file-classifier
+sudo mv file-classifier /usr/local/bin/file-classifier
 ```
 
 ## Quick Start
