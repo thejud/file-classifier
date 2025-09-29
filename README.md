@@ -1,4 +1,4 @@
-# Web Data Classifier
+# File Classifier
 
 A fast, lightweight macOS CLI tool that launches a web interface for manually classifying files or CSV rows. Built with Bun, TypeScript, and vanilla web technologies for maximum performance and simplicity.
 
@@ -144,7 +144,7 @@ The tool automatically opens your browser to a clean, responsive interface:
 
 ## Session Management
 
-Classifications are automatically saved to `~/.web-classifier/` and restored when you restart with the same files and categories. This allows you to:
+Classifications are automatically saved and restored when you restart with the same files and categories. This allows you to:
 
 - Stop and resume work anytime
 - Refresh the browser without losing progress
@@ -212,7 +212,7 @@ Built with modern web technologies:
 ```bash
 # Clone and install dependencies
 git clone <repository>
-cd web-classifier
+cd file-classifier
 bun install
 ```
 

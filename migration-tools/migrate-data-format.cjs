@@ -101,7 +101,7 @@ function main() {
     console.error('');
     console.error('Examples:');
     console.error('  node migrate-data-format.js session-abc123.json');
-    console.error('  node migrate-data-format.js ~/.local/share/web-classifier/');
+    console.error('  node migrate-data-format.js ~/.config/file-classifier/');
     process.exit(1);
   }
 

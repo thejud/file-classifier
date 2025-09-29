@@ -14,11 +14,11 @@ Migrates existing SessionState files to include a `line` field in Classification
 ```bash
 # Using Node.js (recommended - works everywhere)
 node migration-tools/migrate-data-format.js path/to/session-abc123.json
-node migration-tools/migrate-data-format.js ~/.local/share/web-classifier/
+node migration-tools/migrate-data-format.js ~/.config/file-classifier/
 
 # Using Bun (if available)
 bun migration-tools/migrate-data-format.ts path/to/session-abc123.json
-bun migration-tools/migrate-data-format.ts ~/.local/share/web-classifier/
+bun migration-tools/migrate-data-format.ts ~/.config/file-classifier/
 ```
 
 ### What it does

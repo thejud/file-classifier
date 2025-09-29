@@ -138,7 +138,7 @@ function main(): void {
     console.error('');
     console.error('Examples:');
     console.error('  bun migrate-data-format.ts session-abc123.json');
-    console.error('  bun migrate-data-format.ts ~/.local/share/web-classifier/');
+    console.error('  bun migrate-data-format.ts ~/.config/file-classifier/');
     process.exit(1);
   }
 

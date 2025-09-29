@@ -132,7 +132,7 @@ async function main() {
       return;
     }
 
-    console.log('Starting web classifier...');
+    console.log('Starting file classifier...');
     console.log(`Mode: ${config.mode}`);
     console.log(`Categories: ${config.categories.join(', ')}`);
     console.log(`Sources: ${config.sources.join(', ')}`);

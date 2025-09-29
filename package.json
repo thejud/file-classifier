@@ -1,5 +1,5 @@
 {
-  "name": "web-classifier",
+  "name": "file-classifier",
   "version": "1.0.0",
   "description": "A macOS TypeScript CLI tool for manually classifying files or CSV rows via web interface",
   "main": "src/cli.ts",
