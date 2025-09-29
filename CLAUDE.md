@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a **macOS CLI tool** that provides a **web-based interface** for manually classifying files or CSV data. Built with Bun runtime and TypeScript, it targets data labeling workflows like email classification, document triage, and research data categorization.
+This is a **cross-platform CLI tool** (macOS and Linux) that provides a **web-based interface** for manually classifying files or CSV data. Built with Bun runtime and TypeScript, it targets data labeling workflows like email classification, document triage, and research data categorization.
 
 ## Development Commands
 
@@ -15,9 +15,16 @@ Default to using Bun instead of Node.js:
 - `bun install` - Install dependencies
 
 ### Build & Distribution
-- `bun run build` - Build Intel macOS binary
-- `bun run build:arm64` - Build Apple Silicon binary
+- `bun run build` - Build macOS ARM64 binary
+- `bun run build:intel` - Build macOS Intel binary
+- `bun run build:linux-x64` - Build Linux x64 binary
+- `bun run build:linux-arm64` - Build Linux ARM64 binary
 - `bun run lint` - TypeScript type checking
+
+### Installation
+- `bun run install:local` - Auto-detect platform and install binary
+- `bun run uninstall:local` - Remove installed binary
+- `INSTALL_DIR=~/.local/bin bun run install:local` - Install to custom directory
 
 ### Testing
 - `bun test` - Unit tests

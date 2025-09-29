@@ -40,33 +40,56 @@ The goal is **speed and simplicity**: an interface that gets out of your way so 
 
 ## Installation
 
-### macOS
+### Quick Install from Source
 
-Download the appropriate binary for your Mac:
+If you have Bun installed, you can use the automated install script that detects your platform and builds the appropriate binary:
 
-- **Apple Silicon (M1/M2/M3)**: `file-classifier`
-- **Intel Macs**: `file-classifier-intel`
-
-Make it executable:
 ```bash
-chmod +x file-classifier
-sudo mv file-classifier /usr/local/bin/file-classifier
+# Clone the repository
+git clone https://github.com/thejud/file-classifier.git
+cd file-classifier
+
+# Install to ~/.local/bin (no sudo required)
+INSTALL_DIR=~/.local/bin bun run install:local
+
+# Or install to /usr/local/bin (requires sudo)
+sudo bun run install:local
+
+# Uninstall
+bun run uninstall:local
 ```
 
-### Linux
+The install script:
+- Auto-detects your OS (macOS/Linux) and architecture (x64/ARM64)
+- Builds the correct binary for your platform
+- Handles permissions and PATH configuration
+- Supports custom installation directories with `--dir`
 
-Linux binaries can be cross-compiled from macOS or built on Linux with Bun:
+### Pre-built Binaries
 
-- **Linux x64**: `file-classifier-linux`
+Download the appropriate binary from the [releases page](https://github.com/thejud/file-classifier/releases):
+
+#### macOS
+- **Apple Silicon (M1/M2/M3)**: `file-classifier-macos-arm64`
+- **Intel Macs**: `file-classifier-macos-intel`
+
+```bash
+# Download and install (example for Apple Silicon)
+chmod +x file-classifier-macos-arm64
+sudo mv file-classifier-macos-arm64 /usr/local/bin/file-classifier
+```
+
+#### Linux
+- **Linux x64**: `file-classifier-linux-x64`
 - **Linux ARM64**: `file-classifier-linux-arm64`
 
-Make it executable:
 ```bash
-chmod +x file-classifier-linux
-sudo mv file-classifier-linux /usr/local/bin/file-classifier
+# Download and install (example for x64)
+chmod +x file-classifier-linux-x64
+sudo mv file-classifier-linux-x64 /usr/local/bin/file-classifier
 ```
 
-**Note**: Linux binaries are fully standalone and don't require Bun to be installed on the target system.
+**Note**: All binaries are fully standalone and don't require Bun or Node.js on the target system.
 
 ## Quick Start
 
