@@ -1,6 +1,6 @@
 # File Classifier
 
-A fast, lightweight macOS CLI tool that launches a simple web interface for manually classifying files or CSV rows.  
+A fast, lightweight CLI tool for macOS and Linux that launches a simple web interface for manually classifying files or CSV rows.  
 Built with Bun, TypeScript, and vanilla web technologies for maximum performance and simplicity.
 
 ## Why?
@@ -40,6 +40,8 @@ The goal is **speed and simplicity**: an interface that gets out of your way so 
 
 ## Installation
 
+### macOS
+
 Download the appropriate binary for your Mac:
 
 - **Apple Silicon (M1/M2/M3)**: `file-classifier`
@@ -50,6 +52,21 @@ Make it executable:
 chmod +x file-classifier
 sudo mv file-classifier /usr/local/bin/file-classifier
 ```
+
+### Linux
+
+Linux binaries can be cross-compiled from macOS or built on Linux with Bun:
+
+- **Linux x64**: `file-classifier-linux`
+- **Linux ARM64**: `file-classifier-linux-arm64`
+
+Make it executable:
+```bash
+chmod +x file-classifier-linux
+sudo mv file-classifier-linux /usr/local/bin/file-classifier
+```
+
+**Note**: Linux binaries are fully standalone and don't require Bun to be installed on the target system.
 
 ## Quick Start
 
@@ -266,9 +283,16 @@ bun run dev file.txt
 bun test
 bun run test:e2e
 
-# Build standalone binaries
+# Build standalone binaries for macOS
 bun run build        # Intel Mac
 bun run build:arm64  # Apple Silicon
+
+# Cross-compile for Linux (from macOS)
+bun build --compile --target=bun-linux-x64 src/cli.ts --outfile=file-classifier-linux
+bun build --compile --target=bun-linux-arm64 src/cli.ts --outfile=file-classifier-linux-arm64
+
+# Cross-compile with optimizations
+bun build --compile --target=bun-linux-x64 --minify --bytecode src/cli.ts --outfile=file-classifier-linux
 ```
 
 ## Use Cases
@@ -290,8 +314,10 @@ bun run build:arm64  # Apple Silicon
 
 ## Requirements
 
-- **macOS**: 10.15+ (Catalina or newer)
-- **Architecture**: Intel x64 or Apple Silicon (ARM64)
+- **Operating System**:
+  - macOS 10.15+ (Catalina or newer)
+  - Linux (x64 or ARM64)
+- **Architecture**: Intel x64 or ARM64
 - **Browser**: Any modern browser for the web interface
 - **Disk Space**: 100MB for binaries + session storage
 
