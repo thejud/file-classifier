@@ -16,7 +16,9 @@
     "test": "bun test tests/*.test.ts",
     "test:e2e": "playwright test",
     "test:all": "npm run test && npm run test:e2e",
-    "lint": "bun run tsc --noEmit"
+    "lint": "bun run tsc --noEmit",
+    "install:local": "bash scripts/install.sh",
+    "uninstall:local": "bash scripts/uninstall.sh"
   },
   "devDependencies": {
     "@playwright/test": "^1.40.0",
