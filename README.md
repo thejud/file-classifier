@@ -2,6 +2,8 @@
 
 A fast, lightweight macOS CLI tool that launches a web interface for manually classifying files or CSV rows. Built with Bun, TypeScript, and vanilla web technologies for maximum performance and simplicity.
 
+![File Classifier UI](screenshots/ui-initial.png)
+
 ## Features
 
 - 🚀 **Blazing Fast**: Built with Bun runtime, starts in milliseconds
@@ -121,26 +123,29 @@ Classification data is stored in `~/.config/file-classifier/` as session files (
 - **?** or **/**: Show/hide keyboard shortcut help
 - **Escape**: Close any open modal
 
+## Screenshots
+
+### Security Alert Review Example
+The classifier excels at reviewing security alerts and incidents with rich markdown formatting:
+
+![Initial View](screenshots/ui-initial.png)
+*Reviewing a suspicious login alert with markdown-formatted risk assessment*
+
+### Markdown Rendering
+Toggle between raw and rendered markdown views for better readability:
+
+![Markdown Rendered](screenshots/ui-markdown-rendered.png)
+*Markdown rendering mode shows formatted content with proper styling*
+
+### Keyboard Shortcuts
+Comprehensive keyboard shortcuts for efficient classification:
+
+![Help Modal](screenshots/ui-help-modal.png)
+*Press `?` to view all available keyboard shortcuts*
+
 ## Web Interface
 
-The tool automatically opens your browser to a clean, responsive interface:
-
-```
-┌─────────────────────────────────────┐
-│ 📁 Data Classifier - data.csv (3/25)│
-├─────────────────────────────────────┤
-│                                     │
-│         Content Display             │
-│    (file content or CSV row)        │
-│                                     │
-├─────────────────────────────────────┤
-│ Status: ✅ Classified as "Good"    │
-├─────────────────────────────────────┤
-│ [1] Good [2] Bad [3] Review [S] Skip│
-├─────────────────────────────────────┤
-│ ← Prev | 3/25 | Next → | ✅8 ⏭2 ⏳15│
-└─────────────────────────────────────┘
-```
+The tool provides a clean, keyboard-driven interface optimized for rapid classification:
 
 ## Session Management
 
