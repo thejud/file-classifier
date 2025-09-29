@@ -1,0 +1,3 @@
+This is a test file for comment functionality.
+It has multiple lines.
+Each line can be classified and commented.

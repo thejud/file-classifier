@@ -1,0 +1,32 @@
+{
+  "name": "web-classifier",
+  "version": "1.0.0",
+  "description": "A macOS TypeScript CLI tool for manually classifying files or CSV rows via web interface",
+  "main": "src/cli.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "bun run src/cli.ts",
+    "prebuild": "node scripts/generate-assets.cjs",
+    "build": "node scripts/generate-assets.cjs && bun build --compile --target=bun-darwin-arm64 src/cli.ts --outfile dist/file-classifier",
+    "build:intel": "node scripts/generate-assets.cjs && bun build --compile --target=bun-darwin-x64 src/cli.ts --outfile dist/file-classifier-intel",
+    "build:all": "node scripts/generate-assets.cjs && bun build --compile --target=bun-darwin-arm64 src/cli.ts --outfile dist/file-classifier && bun build --compile --target=bun-darwin-x64 src/cli.ts --outfile dist/file-classifier-intel",
+    "test": "bun test tests/*.test.ts",
+    "test:e2e": "playwright test",
+    "test:all": "npm run test && npm run test:e2e",
+    "lint": "bun run tsc --noEmit"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.40.0",
+    "@types/bun": "latest",
+    "typescript": "^5"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@types/papaparse": "^5.3.16",
+    "marked": "^16.3.0",
+    "papaparse": "^5.5.3"
+  }
+}

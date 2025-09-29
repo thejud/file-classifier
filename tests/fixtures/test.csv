@@ -1,0 +1,4 @@
+name,email,message
+John Doe,john@example.com,This is a test message
+Jane Smith,jane@example.com,Another test message for classification
+Bob Johnson,bob@example.com,A third message to classify

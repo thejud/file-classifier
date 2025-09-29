@@ -1,0 +1,11 @@
+name,email,message,category
+John Doe,john@example.com,This is a test message for classification,work
+Jane Smith,jane@example.com,Another test message for the classifier system,personal
+Bob Johnson,bob@example.com,A third message that needs to be reviewed,spam
+Alice Brown,alice@example.com,Fourth item for testing auto-advance functionality,important
+Charlie Davis,charlie@example.com,Fifth test case to ensure navigation works correctly,work
+Diana Wilson,diana@example.com,Sixth message for comprehensive testing purposes,personal
+Eve Miller,eve@example.com,Seventh entry to validate the classification system,spam
+Frank Garcia,frank@example.com,Eighth test message for the web classifier tool,important
+Grace Lee,grace@example.com,Ninth item to test the user interface thoroughly,work
+Henry Wang,henry@example.com,Tenth and final test message for validation,personal

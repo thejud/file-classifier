@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Classifier</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked@9.1.6/lib/marked.umd.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">📁 Data Classifier - <span id="filename">Loading...</span> (<span id="progress">0/0</span>)</h1>
+            <div class="mode-indicator">
+                <span id="markdown-indicator" class="mode-badge hidden">📝 Markdown</span>
+            </div>
+        </header>
+
+        <main class="content">
+            <div id="content-display" class="content-display">
+                <div class="loading">Loading content...</div>
+            </div>
+        </main>
+
+        <section class="status">
+            <div class="status-indicator">
+                Status: <span id="classification-status" class="status-text">⚪ Unclassified</span>
+            </div>
+            <div id="comment-display" class="comment-display hidden"></div>
+        </section>
+
+        <section class="controls">
+            <div id="category-buttons" class="category-buttons">
+                <!-- Dynamically generated category buttons -->
+            </div>
+        </section>
+
+        <footer class="navigation">
+            <div class="nav-controls">
+                <button id="prev-btn" class="nav-btn" disabled>← Prev</button>
+                <span id="nav-progress" class="nav-progress">0/0</span>
+                <button id="next-btn" class="nav-btn" disabled>Next →</button>
+                <button id="comment-btn" class="nav-btn comment-btn" title="Add/edit comment (M)">💬</button>
+            </div>
+            <div class="stats">
+                <span id="stats-classified" class="stat">✅0</span>
+                <span id="stats-skipped" class="stat">⏭0</span>
+                <span id="stats-remaining" class="stat">⏳0</span>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Help Modal -->
+    <div id="help-modal" class="help-modal hidden">
+        <div class="help-overlay" id="help-overlay"></div>
+        <div class="help-content">
+            <div class="help-header">
+                <h2>⌨️ Keyboard Shortcuts</h2>
+                <button id="help-close" class="help-close">×</button>
+            </div>
+            <div class="help-body">
+                <div class="help-section">
+                    <h3>🏷️ Classification</h3>
+                    <div class="shortcut-list">
+                        <div class="shortcut-item">
+                            <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> ... <kbd>9</kbd>
+                            <span>Classify with category 1-9</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="help-section">
+                    <h3>🧭 Navigation</h3>
+                    <div class="shortcut-list">
+                        <div class="shortcut-item">
+                            <kbd>←</kbd> <kbd>→</kbd> or <kbd>J</kbd> <kbd>K</kbd>
+                            <span>Navigate between items</span>
+                        </div>
+                        <div class="shortcut-item">
+                            <kbd>Shift</kbd> + <kbd>←</kbd> <kbd>→</kbd> or <kbd>Shift</kbd> + <kbd>J</kbd> <kbd>K</kbd>
+                            <span>Navigate to unrated items</span>
+                        </div>
+                        <div class="shortcut-item">
+                            <kbd>Space</kbd>
+                            <span>Skip to next item</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="help-section">
+                    <h3>📝 Display & Export</h3>
+                    <div class="shortcut-list">
+                        <div class="shortcut-item">
+                            <kbd>⌘</kbd> + <kbd>M</kbd> <small>(or Ctrl+M)</small>
+                            <span>Toggle markdown rendering mode</span>
+                        </div>
+                        <div class="shortcut-item">
+                            <kbd>⌘</kbd> + <kbd>E</kbd> <small>(or Ctrl+E)</small>
+                            <span>Export results</span>
+                        </div>
+                        <div class="shortcut-item">
+                            <kbd>M</kbd>
+                            <span>Add/edit comment</span>
+                        </div>
+                        <div class="shortcut-item">
+                            <kbd>Shift</kbd> + <kbd>Enter</kbd>
+                            <span>Save comment (in comment modal)</span>
+                        </div>
+                        <div class="shortcut-item">
+                            <kbd>?</kbd>
+                            <span>Show/hide this help screen</span>
+                        </div>
+                        <div class="shortcut-item">
+                            <kbd>Esc</kbd>
+                            <span>Close help screen</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Comment Modal -->
+    <div id="comment-modal" class="comment-modal hidden">
+        <div class="comment-overlay" id="comment-overlay"></div>
+        <div class="comment-content">
+            <div class="comment-header">
+                <h2>💬 Add Comment</h2>
+                <button id="comment-close" class="comment-close">×</button>
+            </div>
+            <div class="comment-body">
+                <textarea id="comment-text" class="comment-textarea" placeholder="Add your comment here..." rows="4"></textarea>
+                <div class="comment-actions">
+                    <button id="comment-save" class="comment-save-btn">Save</button>
+                    <button id="comment-delete" class="comment-delete-btn">Delete</button>
+                    <button id="comment-cancel" class="comment-cancel-btn">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/app.js"></script>
+</body>
+</html>
