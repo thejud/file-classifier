@@ -369,17 +369,20 @@ test.describe('Comment Functionality', () => {
             await page.locator('#comment-text').fill('This file looks good but needs review');
             await page.locator('#comment-save').click();
 
-            // Then classify the item
+            // Then classify the item (will auto-advance to next item)
             await page.locator('[data-category="1"]').click(); // Click first category button (good)
 
-            // Wait for classification to process
+            // Wait for classification to process and auto-advance
             await new Promise(resolve => setTimeout(resolve, 500));
+
+            // Navigate back to first item to verify classification and comment
+            await page.locator('#prev-btn').click();
 
             // Both comment and classification should be visible
             await expect(page.locator('#comment-display')).toContainText('This file looks good but needs review');
             await expect(page.locator('#classification-status')).toContainText('good');
 
-            // Navigate away and back
+            // Navigate away and back again
             await page.locator('#next-btn').click();
             await page.locator('#prev-btn').click();
 
@@ -395,10 +398,11 @@ test.describe('Comment Functionality', () => {
     test('should stay at current position when no more unrated items', async ({ page }) => {
         const { spawn } = await import('child_process');
         const classifier = spawn(`${process.env.HOME}/.bun/bin/bun`, ['run', 'src/cli.ts',
+            '--reset',
             '--categories', 'good,bad,neutral',
             '--port', '3009',
             '--no-browser',
-            `${testDir}/*.txt`
+            `${testDir}/test.txt`  // Use single file for this test
         ], {
             stdio: 'pipe',
             shell: true
@@ -411,14 +415,15 @@ test.describe('Comment Functionality', () => {
 
             await expect(page.locator('#content-display')).toBeVisible();
 
-            // Classify the current item (there's only one test file)
+            // Classify the current item (there's only one test file, so auto-advance won't trigger)
             await page.locator('[data-category="1"]').click(); // Click first category button (good)
 
             // Wait for classification to process
             await new Promise(resolve => setTimeout(resolve, 500));
 
-            // Verify it's classified
+            // Verify it's classified and we're still on item 1 (since there's only 1 item)
             await expect(page.locator('#classification-status')).toContainText('good');
+            await expect(page.locator('#nav-progress')).toContainText('1/1');
 
             // Try to navigate to next unrated item using Shift+K (should do nothing)
             await page.keyboard.press('Shift+KeyK');
@@ -477,16 +482,13 @@ test.describe('Comment Functionality', () => {
             // Should be back on first item
             await expect(page.locator('#classification-status')).toContainText('Unclassified');
 
-            // Classify the current item
+            // Classify the current item (will auto-advance to next unrated item)
             await page.locator('[data-category="1"]').click(); // Click first category button (good)
 
-            // Wait for classification to process
+            // Wait for classification to process and auto-advance
             await new Promise(resolve => setTimeout(resolve, 500));
 
-            // Use Shift+K to go to next unrated item (should skip classified items)
-            await page.keyboard.press('Shift+KeyK');
-
-            // Should find the next unrated item
+            // Should be on next unrated item due to auto-advance
             await expect(page.locator('#classification-status')).toContainText('Unclassified');
 
         } finally {

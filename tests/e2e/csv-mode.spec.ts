@@ -70,25 +70,26 @@ test.describe('CSV Mode E2E Tests', () => {
   test('should classify CSV rows independently', async ({ page }) => {
     await page.goto('http://localhost:3001');
 
-    // Classify first row as "good"
+    // Classify first row as "good" (will auto-advance to next row)
     await page.keyboard.press('1');
-    await expect(page.locator('#classification-status')).toContainText('good');
 
-    // Navigate to next row
-    await page.locator('#next-btn').click();
-
-    // Should be unclassified
+    // Auto-advance should move to second row (2/3)
+    await expect(page.locator('#nav-progress')).toContainText('2/3');
     await expect(page.locator('#classification-status')).toContainText('Unclassified');
 
-    // Classify as "bad"
+    // Classify second row as "bad" (will auto-advance to third row)
     await page.keyboard.press('2');
-    await expect(page.locator('#classification-status')).toContainText('bad');
+
+    // Auto-advance should move to third row (3/3)
+    await expect(page.locator('#nav-progress')).toContainText('3/3');
 
     // Navigate back to first row
+    await page.locator('#prev-btn').click();
     await page.locator('#prev-btn').click();
 
     // Should still be classified as "good"
     await expect(page.locator('#classification-status')).toContainText('good');
+    await expect(page.locator('#nav-progress')).toContainText('1/3');
   });
 
   test('should show correct statistics for CSV mode', async ({ page }) => {
@@ -97,15 +98,14 @@ test.describe('CSV Mode E2E Tests', () => {
     // Initially no classifications (should be fresh session or cleared)
     await expect(page.locator('#stats-remaining')).toContainText('⏳3');
 
-    // Classify first item
+    // Classify first item (will auto-advance to item 2)
     await page.keyboard.press('1');
 
     // Stats should update
     await expect(page.locator('#stats-classified')).toContainText('✅1');
     await expect(page.locator('#stats-remaining')).toContainText('⏳2');
 
-    // Classify second item
-    await page.locator('#next-btn').click();
+    // Classify second item (already on item 2 due to auto-advance)
     await page.keyboard.press('2');
 
     // Stats should update again

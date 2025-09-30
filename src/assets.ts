@@ -1322,10 +1322,7 @@ body {
 
                 // Auto-navigate to next item (only if not on last item)
                 if (this.currentIndex < this.state.totalItems - 1) {
-                    // Use requestAnimationFrame for reliable timing after DOM updates
-                    requestAnimationFrame(() => {
-                        this.navigateNext();
-                    });
+                    this.navigateNext();
                 }
             } else {
                 throw new Error(result.error || 'Classification failed');

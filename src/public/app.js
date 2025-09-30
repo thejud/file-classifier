@@ -417,8 +417,10 @@ class ClassifierApp {
                 await this.loadState();
                 this.updateDisplay();
 
-                // Don't auto-navigate - let user control navigation
-                // This prevents race conditions in tests and gives users more control
+                // Auto-navigate to next item (only if not on last item)
+                if (this.currentIndex < this.state.totalItems - 1) {
+                    this.navigateNext();
+                }
             } else {
                 throw new Error(result.error || 'Classification failed');
             }

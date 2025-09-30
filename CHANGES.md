@@ -5,6 +5,15 @@ All notable changes to file-classifier will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.1] - 2025-09-30
+
+### Fixed
+- Corrected build command documentation in README for ARM64 vs Intel architectures
+- Restored auto-advance functionality after classification for rapid review workflows
+
+### Changed
+- Updated E2E tests to properly handle auto-advance navigation behavior
+
 ## [0.2.0] - 2025-09-29
 
 ### Added
