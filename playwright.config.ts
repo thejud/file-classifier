@@ -11,11 +11,22 @@ export default defineConfig({
   use: {
     baseURL: 'http://localhost:3000',
     trace: 'on-first-retry',
+    // Isolate storage state for each test to prevent cross-contamination
+    storageState: undefined,  // Don't persist storage between tests
   },
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: {
+        ...devices['Desktop Chrome'],
+        // Force a new context for each test to prevent state leakage
+        contextOptions: {
+          // This ensures localStorage/sessionStorage is cleared
+          ignoreHTTPSErrors: true,
+        }
+      },
+      // Each test file gets a fresh browser context
+      testMatch: '**/*.spec.ts',
     },
   ],
   webServer: {

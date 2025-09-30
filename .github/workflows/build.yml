@@ -27,8 +27,14 @@ jobs:
       - name: Run unit tests
         run: bun test tests/*.test.ts
 
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ hashFiles('**/package-lock.json', '**/bun.lockb') }}
+
       - name: Install Playwright
-        run: npx playwright install --with-deps
+        run: npx playwright install --with-deps chromium
 
       - name: Run E2E tests
         run: bun run test:e2e
