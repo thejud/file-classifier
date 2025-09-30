@@ -311,8 +311,8 @@ bun run test:all    # Run both test suites
 # 'bun test' auto-discovers all files including E2E tests which require Playwright
 
 # Build standalone binaries for macOS
-bun run build        # Intel Mac
-bun run build:arm64  # Apple Silicon
+bun run build        # Apple Silicon (ARM64)
+bun run build:intel  # Intel Mac
 
 # Cross-compile for Linux (from macOS)
 bun build --compile --target=bun-linux-x64 src/cli.ts --outfile=file-classifier-linux
