@@ -100,6 +100,8 @@ Options:
   --port <number>                  Specific port (default: random)
   --no-browser                     Don't auto-launch browser
   --reset                          Clear previous classifications and comments for specified files
+  --version, -v                    Show version number
+  --help, -h                       Show this help message
 
 Examples:
   file-classifier file1.txt file2.txt
@@ -114,6 +116,12 @@ Examples:
 async function main() {
   try {
     const args = process.argv.slice(2);
+
+    // Handle --version flag
+    if (args.includes('--version') || args.includes('-v')) {
+      console.log('0.2.0');
+      process.exit(0);
+    }
 
     if (args.length === 0 || args.includes('--help') || args.includes('-h')) {
       printUsage();
