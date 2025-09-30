@@ -303,8 +303,12 @@ bun src/index.ts --csv --columns "title,content" data.csv
 bun run dev file.txt
 
 # Run tests
-bun test
-bun run test:e2e
+bun run test        # Unit tests only (*.test.ts)
+bun run test:e2e    # E2E tests with Playwright (*.spec.ts)
+bun run test:all    # Run both test suites
+
+# Note: Use 'bun run test' instead of 'bun test' directly
+# 'bun test' auto-discovers all files including E2E tests which require Playwright
 
 # Build standalone binaries for macOS
 bun run build        # Intel Mac
