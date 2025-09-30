@@ -41,6 +41,11 @@ export class SessionManager {
 
   saveSession(sessionState: SessionState): void {
     try {
+      // Ensure session directory exists before saving
+      if (!existsSync(this.sessionDir)) {
+        mkdirSync(this.sessionDir, { recursive: true });
+      }
+
       const data = {
         ...sessionState,
         lastSaved: new Date().toISOString(),
