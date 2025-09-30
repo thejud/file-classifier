@@ -12,7 +12,7 @@ test.describe('Web Classifier E2E Tests', () => {
   test.beforeAll(async () => {
     // Start the classifier with test data
     const testFile = join(__dirname, '..', 'fixtures', 'test.txt');
-    serverProcess = spawn('bun', ['run', 'src/cli.ts', '--no-browser', '--port', '3000', testFile], {
+    serverProcess = spawn('bun', ['run', 'src/cli.ts', '--reset', '--no-browser', '--port', '3000', testFile], {
       cwd: join(__dirname, '..', '..'),
       stdio: 'pipe'
     });

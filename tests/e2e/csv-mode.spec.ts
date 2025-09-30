@@ -12,7 +12,7 @@ test.describe('CSV Mode E2E Tests', () => {
   test.beforeAll(async () => {
     // Start the classifier in CSV mode with test data
     const testFile = join(__dirname, '..', 'fixtures', 'test.csv');
-    serverProcess = spawn('bun', ['run', 'src/cli.ts', '--csv', '--no-browser', '--port', '3001', testFile], {
+    serverProcess = spawn('bun', ['run', 'src/cli.ts', '--reset', '--csv', '--no-browser', '--port', '3001', testFile], {
       cwd: join(__dirname, '..', '..'),
       stdio: 'pipe'
     });

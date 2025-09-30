@@ -14,6 +14,7 @@ test.describe('Custom Categories E2E Tests', () => {
     const testFile = join(__dirname, '..', 'fixtures', 'test.txt');
     serverProcess = spawn('bun', [
       'run', 'src/cli.ts',
+      '--reset',
       '--categories', 'urgent,normal,low,spam',
       '--no-browser',
       '--port', '3002',

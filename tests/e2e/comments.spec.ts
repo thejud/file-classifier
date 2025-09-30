@@ -19,6 +19,7 @@ test.describe('Comment Functionality', () => {
         // Start the classifier
         const { spawn } = await import('child_process');
         const classifier = spawn(`${process.env.HOME}/.bun/bin/bun`, ['run', 'src/cli.ts',
+            '--reset',
             '--categories', 'good,bad,neutral',
             '--port', '3001',
             '--no-browser',
