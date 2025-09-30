@@ -7,12 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.2.1] - 2025-09-30
 
+### Added
+- Export button in bottom navigation bar for better discoverability
+- Session file path printed to stdout on shutdown for easy data location
+
 ### Fixed
 - Corrected build command documentation in README for ARM64 vs Intel architectures
 - Restored auto-advance functionality after classification for rapid review workflows
+- Fixed GitHub Actions release permissions
 
 ### Changed
 - Updated E2E tests to properly handle auto-advance navigation behavior
+- Export button uses subtle styling to avoid visual distraction
 
 ## [0.2.0] - 2025-09-29
 
