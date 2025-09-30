@@ -8,6 +8,7 @@ export interface Server {
   port: number;
   stop: () => void;
   url: string;
+  sessionManager: SessionManager;
 }
 
 export async function createServer(config: CLIConfig): Promise<Server> {
@@ -70,6 +71,7 @@ export async function createServer(config: CLIConfig): Promise<Server> {
   return {
     port: actualPort,
     url: baseUrl,
+    sessionManager,
     stop: () => {
       // Save session before stopping
       sessionManager.saveSession(sessionState);

@@ -55,6 +55,7 @@ export const EMBEDDED_ASSETS: Record<string, string> = {
                 <span id="nav-progress" class="nav-progress">0/0</span>
                 <button id="next-btn" class="nav-btn" disabled>Next →</button>
                 <button id="comment-btn" class="nav-btn comment-btn" title="Add/edit comment (M)">💬</button>
+                <button id="export-btn" class="nav-btn export-btn" title="Export results (⌘E or Ctrl+E)">📥 Export</button>
             </div>
             <div class="stats">
                 <span id="stats-classified" class="stat">✅0</span>
@@ -732,6 +733,18 @@ body {
     /* Inherits nav-btn styles - no additional styling needed */
 }
 
+.export-btn {
+    background: white;
+    color: #374151;
+    border-color: #d1d5db;
+}
+
+.export-btn:hover:not(:disabled) {
+    background: #f9fafb;
+    border-color: #9ca3af;
+    color: #059669;
+}
+
 .comment-display {
     background: #f8fafc;
     border: 1px solid #e2e8f0;
@@ -936,6 +949,7 @@ body {
             commentSave: document.getElementById('comment-save'),
             commentDelete: document.getElementById('comment-delete'),
             commentCancel: document.getElementById('comment-cancel'),
+            exportBtn: document.getElementById('export-btn'),
         };
 
         // Configure marked for GitHub-flavored markdown
@@ -991,6 +1005,9 @@ body {
         // Navigation buttons
         this.elements.prevBtn.addEventListener('click', () => this.navigatePrev());
         this.elements.nextBtn.addEventListener('click', () => this.navigateNext());
+
+        // Export button
+        this.elements.exportBtn.addEventListener('click', () => this.exportResults());
 
         // Unified keyboard handler
         document.addEventListener('keydown', (event) => this.handleKeyboard(event));

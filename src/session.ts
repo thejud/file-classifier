@@ -22,6 +22,10 @@ export class SessionManager {
     }
   }
 
+  getSessionFilePath(): string {
+    return this.sessionFile;
+  }
+
   private generateSessionId(config: CLIConfig): string {
     const sources = [...config.sources].sort().join(',');
     const categories = [...config.categories].sort().join(',');

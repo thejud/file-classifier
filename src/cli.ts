@@ -119,7 +119,7 @@ async function main() {
 
     // Handle --version flag
     if (args.includes('--version') || args.includes('-v')) {
-      console.log('0.2.0');
+      console.log('0.2.1');
       process.exit(0);
     }
 
@@ -162,6 +162,7 @@ async function main() {
     const cleanup = () => {
       console.log('\nShutting down server...');
       server.stop();
+      console.log(`Session saved to: ${server.sessionManager.getSessionFilePath()}`);
       process.exit(0);
     };
 

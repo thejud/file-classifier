@@ -33,6 +33,7 @@ class ClassifierApp {
             commentSave: document.getElementById('comment-save'),
             commentDelete: document.getElementById('comment-delete'),
             commentCancel: document.getElementById('comment-cancel'),
+            exportBtn: document.getElementById('export-btn'),
         };
 
         // Configure marked for GitHub-flavored markdown
@@ -88,6 +89,9 @@ class ClassifierApp {
         // Navigation buttons
         this.elements.prevBtn.addEventListener('click', () => this.navigatePrev());
         this.elements.nextBtn.addEventListener('click', () => this.navigateNext());
+
+        // Export button
+        this.elements.exportBtn.addEventListener('click', () => this.exportResults());
 
         // Unified keyboard handler
         document.addEventListener('keydown', (event) => this.handleKeyboard(event));

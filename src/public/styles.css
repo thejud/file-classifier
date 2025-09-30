@@ -574,6 +574,18 @@ body {
     /* Inherits nav-btn styles - no additional styling needed */
 }
 
+.export-btn {
+    background: white;
+    color: #374151;
+    border-color: #d1d5db;
+}
+
+.export-btn:hover:not(:disabled) {
+    background: #f9fafb;
+    border-color: #9ca3af;
+    color: #059669;
+}
+
 .comment-display {
     background: #f8fafc;
     border: 1px solid #e2e8f0;
