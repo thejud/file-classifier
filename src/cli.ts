@@ -119,7 +119,7 @@ async function main() {
 
     // Handle --version flag
     if (args.includes('--version') || args.includes('-v')) {
-      console.log('0.2.1');
+      console.log('0.3.0');
       process.exit(0);
     }
 
