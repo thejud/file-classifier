@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach, afterEach } from 'bun:test';
-import { SessionManager } from '../src/session';
-import { CLIConfig, SessionState } from '../src/types';
+import { SessionManager } from '../../src/session';
+import { CLIConfig, SessionState } from '../../src/types';
 import { existsSync, rmSync } from 'fs';
 
 describe('Session Management', () => {

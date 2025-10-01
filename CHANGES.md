@@ -5,6 +5,17 @@ All notable changes to file-classifier will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.1] - 2025-09-30
+
+### Changed
+- Restructured test directory to separate unit tests (`tests/unit/`) from E2E tests (`tests/e2e/`)
+- Configured Bun test runner to only discover unit tests via `bunfig.toml` root option
+- Fixed test runner conflicts where Playwright E2E tests were incorrectly discovered by Bun
+
+### Fixed
+- `bun test` now only runs unit tests without errors from E2E test files
+- Import paths in unit tests updated to reflect new directory structure
+
 ## [0.3.0] - 2025-09-30
 
 ### Added

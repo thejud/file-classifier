@@ -1,4 +1,4 @@
 [test]
-# Exclude e2e tests from Bun test runs - these should only run with Playwright
 timeout = 30000
-root = "."
+# Only discover tests in tests/unit/ directory
+root = "tests/unit"

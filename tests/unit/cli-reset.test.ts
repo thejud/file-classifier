@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach, afterEach } from 'bun:test';
-import { parseArgs } from '../src/cli';
-import { SessionManager } from '../src/session';
-import { CLIConfig } from '../src/types';
+import { parseArgs } from '../../src/cli';
+import { SessionManager } from '../../src/session';
+import { CLIConfig } from '../../src/types';
 import { existsSync, writeFileSync, mkdirSync } from 'fs';
 import { join } from 'path';
 import { tmpdir } from 'os';

@@ -79,9 +79,10 @@ Use Bun's native APIs instead of Node.js equivalents:
 
 ## Testing Strategy
 
-- **Unit Tests**: Core logic validation in `tests/*.test.ts`
-- **E2E Tests**: Browser automation with Playwright
+- **Unit Tests**: Core logic validation in `tests/unit/*.test.ts` (run with `bun test`)
+- **E2E Tests**: Browser automation with Playwright in `tests/e2e/*.spec.ts` (run with `bun run test:e2e`)
 - **Test Data**: Sample files in `tests/fixtures/`
+- **Test Separation**: Bun test runner configured via `bunfig.toml` to only discover unit tests in `tests/unit/`, preventing conflicts with Playwright E2E tests
 
 ## Important Implementation Notes
 
@@ -93,3 +94,4 @@ The frontend polls the backend API to maintain state synchronization, allowing m
 
 ### CSV Processing
 Uses PapaParse for robust CSV handling with quote escaping and header detection. Column filtering reduces cognitive load during classification.
+- use semantic versioning when creating new releases and change log notes.

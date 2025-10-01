@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'bun:test';
-import { parseArgs } from '../src/cli';
+import { parseArgs } from '../../src/cli';
 
 describe('CLI Argument Parsing', () => {
   it('should parse basic file mode arguments', () => {

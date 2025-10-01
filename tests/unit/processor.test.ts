@@ -1,10 +1,10 @@
 import { describe, it, expect } from 'bun:test';
-import { FileProcessor } from '../src/processor';
-import { CLIConfig } from '../src/types';
+import { FileProcessor } from '../../src/processor';
+import { CLIConfig } from '../../src/types';
 import { join } from 'path';
 
 describe('File Processor', () => {
-  const fixturesDir = join(import.meta.dir, 'fixtures');
+  const fixturesDir = join(import.meta.dir, '../fixtures');
 
   it('should process text files', async () => {
     const config: CLIConfig = {

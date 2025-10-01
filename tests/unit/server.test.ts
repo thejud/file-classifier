@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeAll, afterAll } from 'bun:test';
-import { TestServer } from './fixtures/TestServer';
-import { CLIConfig } from '../src/types';
+import { TestServer } from '../fixtures/TestServer';
+import { CLIConfig } from '../../src/types';
 
 describe('HTTP Server', () => {
   let testServer: TestServer;
